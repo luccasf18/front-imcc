@@ -1,0 +1,206 @@
+.resultado-container {
+  background-color: white;
+  border-radius: 15px;
+  border: 3px solid var(--border-color, #000);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.resultado-container::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #000, #333, #000);
+  border-radius: 18px;
+  z-index: -1;
+}
+
+.resultado-header {
+  background-color: var(--primary-color, hsl(140, 55%, 62%));
+  color: white;
+  padding: var(--spacing-xl, 1.5rem);
+  text-align: center;
+}
+
+.resultado-header h2 {
+  margin: 0 0 var(--spacing-md, 1rem) 0;
+  font-size: var(--font-2xl, clamp(1.5rem, 5vw, 2rem));
+  line-height: 1.3;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.dropdown-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: var(--font-sm, clamp(0.875rem, 2.5vw, 1rem));
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.dropdown-btn:hover {
+  background-color: white;
+  color: var(--primary-color, hsl(140, 55%, 62%));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content {
+  padding: var(--spacing-xl, 1.5rem);
+  background-color: #f9f9f9;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.imagem-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--spacing-lg, 1.5rem);
+  padding: var(--spacing-sm, 0.5rem);
+}
+
+.imagem-imc {
+  max-width: 100%;
+  max-height: 400px;
+  width: auto;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.tabela {
+  width: 100%;
+  overflow-x: auto;
+  font-size: var(--font-sm, clamp(0.875rem, 2.5vw, 1rem));
+  margin-top: var(--spacing-md, 1rem);
+}
+
+.tabela table {
+  width: 100%;
+  min-width: 250px;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tabela th,
+.tabela td {
+  padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: var(--font-sm, clamp(0.875rem, 2.5vw, 1rem));
+}
+
+.tabela th {
+  background-color: var(--primary-color, hsl(140, 55%, 62%));
+  color: white;
+  font-weight: 600;
+}
+
+.tabela tr:hover {
+  background-color: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+  .resultado-header {
+    padding: var(--spacing-lg, 1.5rem);
+  }
+
+  .resultado-header h2 {
+    font-size: var(--font-xl, clamp(1.25rem, 4vw, 1.5rem));
+  }
+
+  .dropdown-content {
+    padding: var(--spacing-lg, 1.5rem);
+  }
+
+  .imagem-imc {
+    max-height: 250px;
+  }
+
+  .dropdown-btn {
+    max-width: 100%;
+    font-size: var(--font-base, clamp(1rem, 3vw, 1.125rem));
+  }
+}
+
+@media (max-width: 480px) {
+  .resultado-header {
+    padding: var(--spacing-md, 1rem);
+  }
+
+  .resultado-header h2 {
+    font-size: var(--font-lg, clamp(1.125rem, 3.5vw, 1.25rem));
+  }
+
+  .dropdown-content {
+    padding: var(--spacing-md, 1rem);
+  }
+
+  .imagem-imc {
+    max-height: 200px;
+  }
+
+  .tabela th,
+  .tabela td {
+    padding: var(--spacing-xs, 0.25rem) var(--spacing-sm, 0.5rem);
+    font-size: var(--font-xs, clamp(0.75rem, 2vw, 0.875rem));
+  }
+}
+
+@media (max-width: 360px) {
+  .resultado-container {
+    border-radius: 12px;
+  }
+
+  .resultado-header {
+    padding: var(--spacing-sm, 0.5rem);
+  }
+
+  .resultado-header h2 {
+    font-size: var(--font-base, clamp(1rem, 3vw, 1.125rem));
+  }
+
+  .dropdown-content {
+    padding: var(--spacing-sm, 0.5rem);
+  }
+
+  .imagem-imc {
+    max-height: 150px;
+  }
+
+  .tabela th,
+  .tabela td {
+    padding: var(--spacing-xs, 0.25rem);
+    font-size: var(--font-xs, clamp(0.75rem, 2vw, 0.875rem));
+  }
+}
